@@ -21,10 +21,10 @@ val appName = "TwitterData"
 val ssc = new StreamingContext(sc, Seconds(10)) 
 
 // values of Twitter API.
-val consumerKey = "JbmCtFNVrTZ5LlScHQu9KWRJ3" // Your consumerKey 
-val consumerSecret = "J9yOGPE9GLuIfFhS4PI8ZpnLSr7Wjwqp1uafBiVFoXOY7DRo1e" // your API secret
-val accessToken ="952061359-cbO0SpJxOyWYCt7BKQjUsMBYueiRuxTWCqBDIQZe" // your access token
-val accessTokenSecret = "UIyA4DG8g3RjEwk3V17M5hSNuiXlwK80TDcMWqjRRqXd0" // your token secret
+val consumerKey = "JbmCtFNVrTZ5LlScHQu9KWRJ3" // My consumerKey 
+val consumerSecret = "J9yOGPE9GLuIfFhS4PI8ZpnLSr7Wjwqp1uafBiVFoXOY7DRo1e" // My API secret
+val accessToken ="952061359-cbO0SpJxOyWYCt7BKQjUsMBYueiRuxTWCqBDIQZe" // My access token
+val accessTokenSecret = "UIyA4DG8g3RjEwk3V17M5hSNuiXlwK80TDcMWqjRRqXd0" // My token secret
 
 //Connection to Twitter API
 val cb = new ConfigurationBuilder
@@ -41,7 +41,7 @@ statuses.foreachRDD { (rdd, time) =>
 
 rdd.foreachPartition { partitionIter =>
 val props = new Properties()
-val bootstrap = "35.242.247.88" //-- your external ip of GCP VM, example: 10.0.0.1:9092
+val bootstrap = "35.242.247.88" //-- external ip of GCP VM, example: 10.0.0.1:9092
 props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer")
 props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer")
 props.put("bootstrap.servers", bootstrap)
